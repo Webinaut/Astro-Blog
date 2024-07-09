@@ -34,7 +34,7 @@ h1 {
 
 .nav-links a:hover,
 a:focus {
-  background-color: #ff9776;
+  color: #ff9776;
 }
 
 .active {
@@ -59,6 +59,11 @@ a:focus {
   #sub-menu1,
   #sub-menu2 {
     position: absolute;
+    background: var(--pico-primary-inverse);
+    padding: 0.5em;
+    border: solid var(--pico-primary);
+    border-width: 2px 0 0 0;
+    box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.1);
   }
   .nav-links li:has(label:hover) #sub-menu1,
   #sub-menu1:hover,
@@ -101,11 +106,16 @@ a:focus {
     display: block;
     text-align: left;
   }
+  #sub-menu1,
+  #sub-menu2 {
+    background-color: bisque;
+    width: fit-content;
+    padding: 1em;
+  }
   .nav-links {
     width: 100%;
     top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
+    color: #ff9776;
     display: none;
     margin: 0;
   }
