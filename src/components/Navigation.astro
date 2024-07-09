@@ -1,5 +1,5 @@
 ---
-
+import DownIcon from "./QuillInlineDown.astro";
 ---
 
 <div class="nav-links">
@@ -7,11 +7,13 @@
     <li><a href="/">Home</a></li>
     <li>
       <a href="#">
-        <label for="sm1" title="Open Sub-menu" class="drop-icon">Martin</label>
+        <label for="sm1" title="Open Sub-menu" class="drop-icon"
+          >Martin <DownIcon /></label
+        >
       </a>
       <input type="checkbox" class="dropdown" id="sm1" />
       <aside>
-        <ul>
+        <ul class="sub-menu">
           <li><a href="/about/">About</a></li>
           <li><a href="/blog/">Blog</a></li>
         </ul>
