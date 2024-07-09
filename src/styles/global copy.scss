@@ -21,6 +21,27 @@ h1 {
   font-size: 2.5rem;
 }
 /* nav styles */
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
+.nav-links {
+  width: 100%;
+  top: 5rem;
+  left: 48px;
+  background-color: #ff9776;
+  display: none;
+  margin: 0;
+}
 
 .nav-links a {
   display: flex;
@@ -36,7 +57,10 @@ h1 {
 a:focus {
   background-color: #ff9776;
 }
-
+.expanded {
+  // display: block;
+  display: unset;
+}
 .active {
   color: red;
 }
@@ -56,10 +80,6 @@ a:focus {
 }
 
 @media only screen and (min-width: 769px) {
-  #sub-menu1,
-  #sub-menu2 {
-    position: absolute;
-  }
   .nav-links li:has(label:hover) #sub-menu1,
   #sub-menu1:hover,
   .nav-links li:has(label:hover) #sub-menu2,
@@ -76,41 +96,14 @@ a:focus {
 
   .nav-links a {
     display: inline-block;
-    padding: 2px 20px;
+    padding: 15px 20px;
   }
   .hamburger {
     display: none;
   }
 }
 @media only screen and (max-width: 768px) {
-  .hamburger {
-    padding-right: 20px;
-    cursor: pointer;
-  }
-
-  .hamburger .line {
-    display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #ff9776;
-  }
-  nav,
-  nav ul,
-  nav li {
-    display: block;
-    text-align: left;
-  }
   .nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
-    margin: 0;
-  }
-  .expanded {
-    // display: block;
-    display: unset;
+    display: block;
   }
 }
