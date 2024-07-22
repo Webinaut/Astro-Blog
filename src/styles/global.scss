@@ -24,7 +24,6 @@ h1 {
 
 .nav-links a {
   display: flex;
-  // text-align: center;
   padding: 10px 0;
   text-decoration: none;
   font-size: 1.2rem;
@@ -44,20 +43,19 @@ a:focus {
 .nav-links input[type="checkbox"] {
   display: none;
 }
-#sub-menu1,
-#sub-menu2 {
+#sub-menu1 {
   display: none;
 }
 .nav-links:has(input#sm1[type="checkbox"]:checked) #sub-menu1 {
   display: block;
 }
-.nav-links:has(input#sm2[type="checkbox"]:checked) #sub-menu2 {
-  display: block;
-}
 
 @media only screen and (min-width: 769px) {
-  #sub-menu1,
-  #sub-menu2 {
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #sub-menu1 {
     position: absolute;
     background: var(--pico-primary-inverse);
     padding: 0.5em;
@@ -66,9 +64,7 @@ a:focus {
     box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.1);
   }
   .nav-links li:has(label:hover) #sub-menu1,
-  #sub-menu1:hover,
-  .nav-links li:has(label:hover) #sub-menu2,
-  #sub-menu2:hover {
+  #sub-menu1:hover {
     display: block;
   }
   .nav-links {

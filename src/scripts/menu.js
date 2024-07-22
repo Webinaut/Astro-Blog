@@ -4,7 +4,6 @@ document.querySelector(".hamburger").addEventListener("click", () => {
 });
 
 // Set active class on nav when the page is active
-
 const nav = document.querySelector(".nav-links");
 const navLinks = nav.querySelectorAll("a");
 const currentURL = window.location.href;

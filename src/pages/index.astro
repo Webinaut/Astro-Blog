@@ -6,6 +6,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+<BaseLayout>
+  <h1>{pageTitle}</h1>
+  <h2>My Awesome Blog</h2>
+  <p>
+    This blog is going to be a collection of my journey learning Astro. The
+    resources used in this blog are:
+    <ul>
+      <li>Astro</li>
+      <li>Preact</li>
+      <li>Astro Content Collections</li>
+      <li>Pico CSS</li>
+      <li>SCSS</li>
+    </ul>
+    <p>
+      I’m the owner at One Stop Sites as well as a freelance Web Developer. I
+      started my development career in 2012 building WordPress authority sites,
+      doing SEO (Search Engine Optimisation) and Social Media Marketing.
+    </p>
+    <p>
+      When I’m not building sites (which is a lot of the time), I support my
+      wife’s artisan chocolate business, Chocolaterie RenMar. Otherwise, I can
+      usually be found doing outdoor jobs on our rural property, flyfishing or
+      playing golf.
+    </p>
+  </p>
 </BaseLayout>
