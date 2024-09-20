@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import "../styles/global.scss";
 import BlogPost from "../components/BlogPost.astro";
-import { getReadingTime } from "../scripts/readingtime.js";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -25,7 +24,6 @@ const allPosts = await getCollection("posts");
         {
           allPosts.map((post) => (
             <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-            <p>{getReadingTime(post.body)} minutes to read</p>
           ))
         }
       </ul>
