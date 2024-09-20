@@ -25,7 +25,7 @@ const allPosts = await getCollection("posts");
         {
           allPosts.map((post) => (
             <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
-            <p>{getReadingTime(post.body)}</p>
+            <p>{getReadingTime(post.body)} minute read</p>
           ))
         }
       </ul>
