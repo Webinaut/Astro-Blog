@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@astrojs/preact": "^3.5.1",
+    "@netlify/blobs": "^8.0.1",
+    "@netlify/functions": "^2.8.1",
     "@picocss/pico": "^2.0.6",
     "astro": "^4.12.2",
     "preact": "^10.22.1",
