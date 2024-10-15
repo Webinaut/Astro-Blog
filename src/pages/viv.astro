@@ -1,0 +1,52 @@
+---
+import "../styles/global.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Test Page";
+---
+
+<BaseLayout>
+  <h1>{pageTitle}</h1>
+  <p>This is the test page</p>
+  <div class="container-fluid">
+    <article>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <image
+          href="../../assets/images/VivRowdenTTLG.png"
+          x="0"
+          y="0"
+          height="50"
+          width="50"
+        />
+      </svg>
+      <!-- <div class="framed-image">
+        <img
+          src="../../assets/images/VivRowdenTTLG.png"
+          alt="Viv Image"
+          class="viv-image"
+        />
+      </div> -->
+      <!-- <div class="glass-card"></div> -->
+      <div class="viv-background">
+        <img
+          src="../../assets/images/VivClipped.svg"
+          alt="Viv Image Clipped"
+          class="viv-image-clipped"
+        />
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+<style>
+  .framed-image {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .viv-image-clipped {
+  }
+  .glass-card {
+  }
+  .viv-background {
+  }
+</style>

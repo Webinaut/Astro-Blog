@@ -1,7 +1,6 @@
 import { getStore } from "@netlify/blobs";
-import type { Context } from "@netlify/functions";
 
-export default async (req: Request, context: Context) => {
+export default async (req, context) => {
   try {
     const urlParams = new URLSearchParams(req.url.split("?")[1]);
     const page = urlParams.get("page");
