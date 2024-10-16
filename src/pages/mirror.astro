@@ -1,0 +1,107 @@
+---
+import "../styles/global.scss";
+import { Image } from "astro:assets";
+import mirror from "/assets/images/TTLGMirror.png";
+import vivpic from "/assets/images/VivTTLG.png";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+// import { fade } from "astro:transitions";
+const pageTitle = "Mirror From TTLG";
+---
+
+<BaseLayout>
+  <h1>{pageTitle}</h1>
+  <p>This is the test page using CSS Grid</p>
+  <div class="container-fluid header-grid">
+    <div class="hero1">
+      <h1>through the</h1>
+    </div>
+    <div class="hero2">
+      <h1>looking glass</h1>
+    </div>
+    <div class="image_bottom">
+      <Image src={mirror} alt="Mirror" />
+    </div>
+    <div class="image_top">
+      <Image src={vivpic} alt="Mirror Overlay" />
+    </div>
+  </div>
+</BaseLayout>
+<style lang="scss">
+  .container-fluid {
+    background-color: #bababa;
+    &.header-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(10px, auto);
+      grid-gap: 5px;
+    }
+  }
+  .main-nav {
+    background-color: transparent;
+  }
+  .header-grid h1 {
+    font-size: 11vw;
+    text-transform: lowercase;
+    margin: 0;
+  }
+  .hero1 {
+    grid-area: 2 / 1 / 3 / span 12;
+    z-index: 3;
+    opacity: 0;
+    animation: fadeIn 3s 1s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .hero2 {
+    grid-area: 3 / 1 / 4 / span 12;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeIn 3s 2.5s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .image_bottom {
+    z-index: 5;
+    grid-area: 1 / 9 / span 3 / span 4;
+    width: 90%;
+    opacity: 0;
+    animation: fadeIn 3s 3s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .image_top {
+    z-index: 6;
+    grid-area: 1 / 9 / span 3 / span 4;
+    width: 90%;
+    opacity: 0;
+    animation: fadeIn 3s 4s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+</style>
