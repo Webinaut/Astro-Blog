@@ -3,6 +3,8 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
+    "target": "ES2020",
+    "module": "es2020",
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   }
