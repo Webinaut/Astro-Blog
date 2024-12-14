@@ -1,7 +1,7 @@
-import type { Config } from "@netlify/functions";
+import type { Context } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
 
-export default async (req: Request) => {
+export default async (req: Request, context: Context) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
   }
@@ -31,9 +31,9 @@ export default async (req: Request) => {
 
   // Increment views
   views++;
-
   // Store new count
   await store.set(`${slug}.txt`, views.toString());
+  // await store.get(`${slug}.txt`);
 
   return new Response(JSON.stringify({ views }), {
     headers: { "Content-Type": "application/json" },
