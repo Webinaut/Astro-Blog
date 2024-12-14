@@ -20,78 +20,37 @@ const { pageTitle } = Astro.props;
     <div class="container-fluid">
       <Header />
       <h1>{pageTitle}</h1>
-      <div id="viewCount">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="106.75"
-          height="28"
-          role="img"
-          aria-label="VIEW: 0"
-        >
-          <title>VIEW: 0</title>
-          <g shape-rendering="crispEdges">
-            <rect width="58.00" height="28" fill="#555"></rect>
-            <rect x="58.00" width="48.75" height="28" fill="#40ffdc"></rect>
-          </g>
-          <g
-            fill="#fff"
-            text-anchor="middle"
-            font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
-            text-rendering="geometricPrecision"
-            font-size="100"
-          >
-            <text
-              transform="scale(.1)"
-              x="290"
-              y="175"
-              textLength="340"
-              fill="#fff"
-            >
-              VIEW
-            </text>
-            <text
-              id="viewCountText"
-              transform="scale(.1)"
-              x="823.75"
-              y="175"
-              textLength="247.5"
-              fill="#333"
-              font-weight="bold"></text>
-          </g>
-        </svg>
-        <slot />
-        <Footer />
-      </div>
-      <style is:global>
-        @keyframes fadeOut {
-          0% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-      </style>
-      <script>
-        import "../scripts/menu.js";
-
-        // var current_page = window.location.href + "index.html";
-        // fetch("/page_view?page=" + encodeURIComponent(current_page), {
-        //   method: "GET",
-        //   headers: {
-        //     "Content-Type": "application/x-www-form-urlencoded",
-        //   },
-        // })
-        //   .then((response) => response.json())
-        //   .then((data) => {
-        //     var viewCount = data.data.view_count;
-        //     document.getElementById("viewCountText").textContent = viewCount;
-        //     var svg = document.querySelector("svg");
-        //     svg.setAttribute("aria-label", "VIEW: " + viewCount);
-        //   });
-        // .catch((error) => console.error("Error:", error));
-      </script>
+      <slot />
+      <Footer />
     </div>
+    <style is:global>
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+    <script>
+      import "../scripts/menu.js";
+
+      // var current_page = window.location.href + "index.html";
+      // fetch("/page_view?page=" + encodeURIComponent(current_page), {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //   },
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     var viewCount = data.data.view_count;
+      //     document.getElementById("viewCountText").textContent = viewCount;
+      //     var svg = document.querySelector("svg");
+      //     svg.setAttribute("aria-label", "VIEW: " + viewCount);
+      //   });
+      // .catch((error) => console.error("Error:", error));
+    </script>
   </body>
 </html>

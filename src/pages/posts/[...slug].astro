@@ -1,20 +1,37 @@
 ---
-import { getCollection } from "astro:content";
+// import { getCollection } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+import ViewCounter from "../../components/ViewCounter.astro";
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection("posts");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+// SSR Code
+import { getEntry } from "astro:content";
+// 1. Get the slug from the incoming server request
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
 }
+// 2. Query for the entry directly using the request slug
+const entry = await getEntry("posts", slug);
+// 3. Redirect if the entry does not exist
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+// End SSR Code
 
-const { entry } = Astro.props;
-console.log(entry);
+// export async function getStaticPaths() {
+//   const blogEntries = await getCollection("posts");
+//   return blogEntries.map((entry) => ({
+//     params: { slug: entry.slug },
+//     props: { entry },
+//   }));
+// }
+
+// const { entry } = Astro.props;
+// console.log(entry);
 const { Content } = await entry.render();
 ---
 
 <MarkdownPostLayout frontmatter={entry.data}>
+  <ViewCounter slug={slug} />
   <Content />
 </MarkdownPostLayout>

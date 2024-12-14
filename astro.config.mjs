@@ -1,10 +1,14 @@
 import { defineConfig } from "astro/config";
-
+import netlify from "@astrojs/netlify";
 //astro.build/config
 import preact from "@astrojs/preact";
-import swup from "@swup/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [preact(), swup()],
+  integrations: [preact()],
+  output: "server",
+  adapter: netlify(),
+  // legacy: {
+  //   collections: true,
+  // },
 });

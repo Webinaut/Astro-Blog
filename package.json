@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.5.3",
+    "@astrojs/netlify": "^6.0.0",
+    "@astrojs/preact": "^4.0.0",
     "@netlify/blobs": "^8.1.0",
     "@netlify/functions": "^2.8.1",
     "@picocss/pico": "^2.0.6",
-    "@swup/astro": "^1.4.1",
-    "astro": "^4.15.11",
+    "astro": "^5.0.4",
     "preact": "^10.22.1",
     "sass": "^1.77.6"
   }

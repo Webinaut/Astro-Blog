@@ -46,7 +46,7 @@ a:focus {
 .sub-menu {
   display: none;
 }
-.nav-links:has(input#sm1[type="checkbox"]:checked) .sub-menu {
+.nav-links:has(input#sm1[type="checkbox"]:checked) #sub-menu1 {
   display: block;
 }
 @media only screen and (min-width: 769px) {
