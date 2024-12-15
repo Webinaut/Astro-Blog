@@ -1,6 +1,6 @@
 import type { Context } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
-
+export const prerender = false;
 export default async (req: Request, context: Context) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });

@@ -10,7 +10,7 @@ const { slug } = Astro.props;
   <span class="views">Loading views...</span>
 </div>
 
-<script is:inline>
+<script>
   async function incrementViews(slug) {
     try {
       const response = await fetch("/.netlify/functions/increment-views", {
