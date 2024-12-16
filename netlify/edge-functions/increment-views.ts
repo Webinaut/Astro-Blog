@@ -1,7 +1,11 @@
-import type { Context } from "@netlify/functions";
 import { getStore } from "@netlify/blobs";
-export const prerender = false;
-export default async (req: Request, context: Context) => {
+import { Config } from "@netlify/edge-functions";
+import process from "node:process";
+export const config: Config = {
+  path: "/api/increment-views",
+};
+
+export default async (req: Request) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 });
   }

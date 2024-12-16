@@ -2,7 +2,7 @@
 interface Props {
   slug: string;
 }
-export const prerender = false;
+// export const prerender = false;
 const { slug } = Astro.props;
 ---
 
@@ -11,10 +11,10 @@ const { slug } = Astro.props;
 </div>
 
 <script>
-  export const prerender = false;
+  // export const prerender = false;
   async function incrementViews(slug) {
     try {
-      const response = await fetch("/.netlify/functions/increment-views", {
+      const response = await fetch("/api/increment-views", {
         method: "POST",
         body: JSON.stringify({ slug }),
       });
