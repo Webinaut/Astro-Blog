@@ -4,7 +4,7 @@ import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 import ViewCounter from "../../components/ViewCounter.astro";
 
 // SSR Code
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 // 1. Get the slug from the incoming server request
 const { slug } = Astro.params;
 if (slug === undefined) {
@@ -28,7 +28,7 @@ if (entry === undefined) {
 
 // const { entry } = Astro.props;
 // console.log(entry);
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <MarkdownPostLayout frontmatter={entry.data}>
