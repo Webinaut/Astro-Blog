@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
-  </head>
+<html>
+  <head></head>
   <body>
     <form
       name="maverick contact form"
-      y
+      id="contact-form"
       method="POST"
       netlify-honeypot="bot-field"
       data-netlify="true"
       data-astro-reload
       novalidate
+      hidden
     >
       <p class="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
       </p>
       <input
         type="hidden"
@@ -26,23 +20,11 @@
         data-remove-prefix
         value="Contact Form from themaverick.net.au"
       />
-      <fieldset class="grid">
-        <p>
-          <label>Name: <input type="text" name="name" /></label>
-        </p>
-        <p>
-          <label>Email Address: <input type="email" name="email" /></label>
-        </p>
-      </fieldset>
-      <fieldset>
-        <p>
-          <label> Message: <textarea name="message"></textarea></label>
-        </p>
-      </fieldset>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
       <div data-netlify-recaptcha="true"></div>
-      <p>
-        <button type="submit">Send</button>
-      </p>
+      <button type="submit">Send</button>
     </form>
     <style>
       .hidden {

@@ -1,10 +1,23 @@
 ---
+export const prerender = false;
 
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const message = formData.get("message");
+  // const formid = formData.get("id");
+  // Process the form data (e.g., send an email, save to database)
+  console.log("Form submission:", { name, email, message });
+
+  // Redirect to a thank you page
+  // return Astro.redirect("/thank-you");
+}
 ---
 
 <form
   name="maverick contact form"
-  y
+  id="contact-form"
   method="POST"
   netlify-honeypot="bot-field"
   data-netlify="true"
@@ -13,7 +26,7 @@
 >
   <p class="hidden">
     <label>
-      Don’t fill this out if you’re human: <input name="bot-field" />
+      Don't fill this out if you're human: <input name="bot-field" />
     </label>
   </p>
   <input
@@ -39,7 +52,48 @@
   <p>
     <button type="submit">Send</button>
   </p>
+  <div id="form-status" class="hidden">
+    <p class="success-message">Thank you for your message!</p>
+    <p class="error-message">
+      There was an error sending your message, Martin.
+    </p>
+  </div>
 </form>
+<script is:inline>
+  const form = document.getElementById("contact-form");
+  console.log("🚀 ~ form:", form);
+  const formStatus = document.getElementById("form-status");
+  const successMessage = formStatus.querySelector(".success-message");
+  const errorMessage = formStatus.querySelector(".error-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("/contactform.html", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      formStatus.classList.remove("hidden");
+      if (result.success) {
+        successMessage.classList.remove("hidden");
+        errorMessage.classList.add("hidden");
+        form.reset();
+      } else {
+        successMessage.classList.add("hidden");
+        errorMessage.classList.remove("hidden");
+      }
+    } catch (error) {
+      formStatus.classList.remove("hidden");
+      successMessage.classList.add("hidden");
+      errorMessage.classList.remove("hidden");
+    }
+  });
+</script>
 <style>
   .hidden {
     display: none;
@@ -50,5 +104,8 @@
   button {
     width: 50%;
     margin-top: 2em;
+  }
+  #contact-form {
+    color: red;
   }
 </style>
