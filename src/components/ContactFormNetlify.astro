@@ -1,5 +1,5 @@
 ---
-// export const prerender = false;
+export const prerender = true;
 
 // if (Astro.request.method === "POST") {
 //   const formData = await Astro.request.formData();
@@ -16,13 +16,10 @@
 
 <form
   name="maverick contact form"
-  id="contact-form"
-  method="POST"
   netlify-honeypot="bot-field"
   data-netlify="true"
   data-astro-reload
   novalidate
-  onsubmit="handleSubmit"
 >
   <p class="hidden">
     <label>
@@ -53,7 +50,7 @@
     <button type="submit">Send</button>
   </p>
 </form>
-<script is:inline>
+<!-- <script is:inline>
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -70,7 +67,7 @@
   };
 
   document.querySelector("form").addEventListener("submit", handleSubmit);
-</script>
+</script> -->
 <style>
   .hidden {
     display: none;

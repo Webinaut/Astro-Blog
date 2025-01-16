@@ -1,7 +1,19 @@
 <html>
   <head></head>
   <body>
-    <form name="maverick contact form" data-netlify="true" hidden>
+    <form
+      name="maverick contact form"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input name="bot-field" />
+      <input
+        type="hidden"
+        name="maverick contact form"
+        data-remove-prefix
+        value="Contact Form from themaverick.net.au"
+      />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
